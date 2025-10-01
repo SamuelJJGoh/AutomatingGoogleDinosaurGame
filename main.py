@@ -13,7 +13,6 @@ def is_obstacle_ahead():
     img = ImageGrab.grab(box)
     gray = img.convert(mode="L")  # convert to grayscale
     pixels = gray.getdata() # flattens all pixel values (0=black ... 255=white)
-    print(pixels)
     threshold = 100  # adjust depending on brightness
 
     if min(pixels) < threshold: # if any single pixel is dark, return True
@@ -27,7 +26,7 @@ while True:
         if is_obstacle_ahead():
             pyautogui.press("space") 
         time.sleep(0.01)  # small delay to reduce CPU usage
-        
+
     except KeyboardInterrupt:
         print("Bot stopped.")
         break
